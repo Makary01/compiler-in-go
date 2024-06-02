@@ -1,1 +1,1 @@
-# compiler-in-go
+# interpreter-in-go
