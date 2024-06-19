@@ -50,7 +50,6 @@ func (p *Parser) parseStatement() ast.Statement {
     }
 }
 
-// TODO: Refactor this code to adhere to CQS principle
 func (p *Parser) parseLetStatement() *ast.LetStatement {
     stmt := &ast.LetStatement{Token: p.curToken}
 
@@ -87,10 +86,3 @@ func (p *Parser) expectPeek(t token.TokenType) bool {
         return false
     }
 }
-
-
-
-
-
-
-
