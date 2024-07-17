@@ -1,8 +1,9 @@
 package ast
 
 import (
-    "bytes"
-    "github.com/Makary01/interpreter-in-go/src/monkey/token"
+	"bytes"
+	"strings"
+	"github.com/Makary01/interpreter-in-go/src/monkey/token"
 )
 
 type Node interface {
@@ -204,6 +205,30 @@ func (bs *BlockStatement) String() string {
     for _, s := range bs.Statements {
         out.WriteString(s.String())
     }
+
+    return out.String()
+}
+
+type CallExpression struct {
+    Token token.Token
+    Function Expression
+    Arguments []Expression
+}
+
+func (ce *CallExpression) expressionNode() {}
+func (ce *CallExpression) TokenLiteral() string {return ce.Token.Literal}
+func (ce *CallExpression) String() string {
+    var out bytes.Buffer
+    
+    args := []string{}
+    for _, a := range ce.Arguments {
+        args = append(args, a.String())
+    }
+
+    out.WriteString(ce.Function.String())
+    out.WriteString("(")
+    out.WriteString(strings.Join(args, ", "))
+    out.WriteString(")")
 
     return out.String()
 }
