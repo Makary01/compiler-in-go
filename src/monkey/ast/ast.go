@@ -232,3 +232,9 @@ func (ce *CallExpression) String() string {
 
     return out.String()
 }
+
+type FunctionLiteral struct {
+    Token token.Token
+    Parameters []*Identifier
+    Body *BlockStatement
+}
