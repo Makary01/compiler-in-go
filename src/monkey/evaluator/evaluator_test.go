@@ -229,7 +229,7 @@ func TestFunctionObject(t *testing.T) {
     }
 
     if len(fn.Parameters) != 1 {
-        t.Fatalf("function has wrong parameters. Paramenters=%+v", fn.Parameters)
+        t.Fatalf("function has wrong parameters. Parameters=%+v", fn.Parameters)
     }
 
     if fn.Parameters[0].String() != "x" {
